@@ -1,6 +1,6 @@
-### Kotlin Multiplatform Mobile
+## Kotlin Multiplatform Mobile
 
-Demo How we sharing common logic for both iOS and Android
+Demo how we sharing common logic for both iOS and Android.
 
 #### Kotlin Multiplatform
 - Ktor
