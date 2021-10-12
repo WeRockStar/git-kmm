@@ -1,4 +1,4 @@
-## Kotlin Multiplatform Mobile
+## Kotlin Multiplatform Mobile + Declarative UI Framework
 
 Demo how we sharing common logic for both iOS and Android.
 
