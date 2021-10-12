@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
+    kotlin(KotlinPlugins.android)
 }
 
 dependencies {
@@ -8,14 +8,25 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
+
+    implementation(Compose.runtime)
+    implementation(Compose.runtimeLiveData)
+    implementation(Compose.ui)
+    implementation(Compose.material)
+    implementation(Compose.uiTooling)
+    implementation(Compose.foundation)
+    implementation(Compose.compiler)
+    implementation(Compose.activity)
+    implementation(Compose.navigation)
+
 }
 
 android {
-    compileSdk = 31
+    compileSdk = AndroidApp.compileSdk
     defaultConfig {
         applicationId = "com.werockstar.git_kmm.android"
-        minSdk = 23
-        targetSdk = 31
+        minSdk = AndroidApp.minSdk
+        targetSdk = AndroidApp.targetSdk
         versionCode = 1
         versionName = "1.0"
     }
@@ -23,5 +34,12 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+    }
+    buildFeatures {
+        compose = true
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
