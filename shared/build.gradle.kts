@@ -30,6 +30,7 @@ kotlin {
                 implementation(Ktor.core)
                 implementation(Ktor.serialization)
                 implementation(Ktor.logging)
+                implementation(Logging.napier)
             }
         }
         val commonTest by getting {

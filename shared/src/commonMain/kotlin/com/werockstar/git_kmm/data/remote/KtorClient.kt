@@ -13,12 +13,14 @@ object KtorClient {
                 serializer = KotlinxSerializer(
                     kotlinx.serialization.json.Json {
                         ignoreUnknownKeys = true
+                        isLenient = true
+                        encodeDefaults = false
                     }
                 )
             }
             install(Logging) {
-                logger = Logger.DEFAULT
-                level = LogLevel.BODY
+                level = LogLevel.HEADERS
+                logger = KtorLogging.create()
             }
         }
     }
