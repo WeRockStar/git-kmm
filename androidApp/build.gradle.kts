@@ -22,13 +22,14 @@ dependencies {
     implementation(Compose.navigation)
 
     implementation(Hilt.hiltAndroid)
+    implementation(Hilt.hiltViewModel)
     kapt(Hilt.hiltCompiler)
 }
 
 android {
     compileSdk = AndroidApp.compileSdk
     defaultConfig {
-        applicationId = "com.werockstar.git_kmm.android"
+        applicationId = AndroidApp.applicationId
         minSdk = AndroidApp.minSdk
         targetSdk = AndroidApp.targetSdk
         versionCode = 1

@@ -1,12 +1,16 @@
-package com.werockstar.git_kmm.android
+package com.werockstar.git_kmm.android.ui
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
+import androidx.lifecycle.viewmodel.compose.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,12 +22,15 @@ class MainActivity : AppCompatActivity() {
 }
 
 @Composable
-fun GreetingText() {
+fun GreetingText(viewModel: MainViewModel = viewModel()) {
+    LaunchedEffect(Unit) {
+        viewModel.fetchUsers()
+    }
     Text(text = "")
 }
 
 @Preview
 @Composable
 fun GreetingPreview() {
-    GreetingText()
+
 }
