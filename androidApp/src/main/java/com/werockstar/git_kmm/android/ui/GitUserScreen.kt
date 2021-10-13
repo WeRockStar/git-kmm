@@ -16,7 +16,6 @@ fun GitUserScreen(viewModel: GitUserViewModel = viewModel()) {
     LaunchedEffect(Unit) {
         viewModel.fetchUsers()
     }
-
     LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         items(users.value) {
             GitUser(user = it)
