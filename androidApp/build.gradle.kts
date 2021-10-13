@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     kotlin(KotlinPlugins.android)
+    kotlin(KotlinPlugins.kapt)
+    id(Hilt.hiltPlugin)
 }
 
 dependencies {
@@ -19,6 +21,8 @@ dependencies {
     implementation(Compose.activity)
     implementation(Compose.navigation)
 
+    implementation(Hilt.hiltAndroid)
+    kapt(Hilt.hiltCompiler)
 }
 
 android {
