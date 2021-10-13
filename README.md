@@ -1,6 +1,14 @@
-## Kotlin Multiplatform Mobile + Declarative UI Framework
+# Kotlin Multiplatform Mobile + Declarative UI Framework
 
-Demo how we sharing common logic for both iOS and Android.
+```
+Save effort and have fun with the latest UI framework.
+```
+
+Which parts that we would like to share?
+1. Business Logic
+2. Network client
+3. Logging
+4. Common data model
 
 #### Kotlin Multiplatform
 - Ktor
@@ -10,4 +18,4 @@ Demo how we sharing common logic for both iOS and Android.
 - Hilt
 
 #### iOS
-- SwiftUI
+- SwiftUI version 3 (iOS 15)
