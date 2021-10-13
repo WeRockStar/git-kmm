@@ -72,11 +72,11 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				DF78647E271704F10056BAD9 /* Extensions */,
 				DF7864792716FF3B0056BAD9 /* Presentation */,
 				DF7864742716FECD0056BAD9 /* View */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
-				DF78647A2716FF930056BAD9 /* Optional+String.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -105,6 +105,14 @@
 				7555FF82242A565900829871 /* GitUserListingView.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		DF78647E271704F10056BAD9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DF78647A2716FF930056BAD9 /* Optional+String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

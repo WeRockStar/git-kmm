@@ -8,6 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
@@ -29,20 +30,26 @@ fun GitUser(user: GitUser) {
                     .padding(8.dp)
                     .clip(CircleShape)
             )
-            Column(modifier = Modifier.weight(1f)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .align(Alignment.CenterVertically)
+            ) {
                 Text(
-                    user.username, modifier = Modifier.padding(top = 8.dp),
+                    user.username, modifier = Modifier,
                     style = MaterialTheme.typography.h6,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
 
-                Text(
-                    user.name.orEmpty(), modifier = Modifier.padding(top = 8.dp),
-                    style = MaterialTheme.typography.subtitle1,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
+                if (user.name.orEmpty().isNotEmpty()) {
+                    Text(
+                        user.name.orEmpty(), modifier = Modifier.padding(top = 8.dp),
+                        style = MaterialTheme.typography.subtitle1,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
             }
         }
     }
