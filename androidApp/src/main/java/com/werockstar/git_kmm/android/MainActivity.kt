@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.werockstar.git_kmm.Greeting
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun GreetingText() {
-    val greeting = Greeting().greeting()
-    Text(text = greeting)
+    Text(text = "")
 }
 
 @Preview
