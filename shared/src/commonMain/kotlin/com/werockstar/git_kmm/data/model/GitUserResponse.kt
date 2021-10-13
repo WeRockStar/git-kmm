@@ -26,7 +26,7 @@ class GitUserResponse(
     @SerialName("url")
     val url: String,
     @SerialName("name")
-    val name: String?,
+    val name: String? = "",
     @SerialName("company")
-    val company: String?
+    val company: String? = ""
 )
