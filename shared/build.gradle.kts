@@ -29,6 +29,7 @@ kotlin {
             dependencies {
                 implementation(Ktor.core)
                 implementation(Ktor.serialization)
+                implementation(Ktor.logging)
             }
         }
         val commonTest by getting {

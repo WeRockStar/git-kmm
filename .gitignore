@@ -9,4 +9,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-iosApp/iosApp.xcodeproj
+iosApp/iosApp.xcodeproj/
