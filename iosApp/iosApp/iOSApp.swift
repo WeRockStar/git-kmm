@@ -4,11 +4,11 @@ import shared
 @main
 struct iOSApp: App {
     
-    private let viewModel = GitUserViewModel(loader: GitLoader())
+    private let viewModel = GitUserListingViewModel(loader: GitLoader())
     
 	var body: some Scene {
 		WindowGroup {
-            GitUserView()
+            GitUserListingView()
                 .environmentObject(viewModel)
 		}
 	}

@@ -1,22 +1,17 @@
 import SwiftUI
 import shared
 
-struct GitUserView: View {
-    @EnvironmentObject var viewModel: GitUserViewModel
+struct GitUserListingView: View {
+    
+    @EnvironmentObject var viewModel: GitUserListingViewModel
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.users, id: \.username) { user in
-                    Text(user.username)
+                    GitUserView(user: user)
                 }
             }.navigationTitle("KMM (SwiftUI)")
         }
-    }
-}
-
-struct GitUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        GitUserView()
     }
 }

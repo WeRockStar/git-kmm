@@ -9,7 +9,7 @@
 import shared
 import Combine
 
-final class GitUserViewModel: ObservableObject {
+final class GitUserListingViewModel: ObservableObject {
     
     private let loader: GitLoader
     

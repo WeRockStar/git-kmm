@@ -19,7 +19,7 @@ fun AppBar() {
             .background(MaterialTheme.colors.primary)
     ) {
         Text(
-            text = "KMM App (Jetpack Compose)",
+            text = "KMM (Jetpack Compose)",
             color = MaterialTheme.colors.onPrimary,
             style = MaterialTheme.typography.h6,
             modifier = Modifier
