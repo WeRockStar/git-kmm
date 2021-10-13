@@ -1,5 +1,6 @@
 package com.werockstar.git_kmm.android.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,13 +11,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val loader: GitLoader) : ViewModel() {
+class GitUserViewModel @Inject constructor(private val loader: GitLoader) : ViewModel() {
 
-    val users: MutableLiveData<List<GitUser>> = MutableLiveData()
+    private val _users: MutableLiveData<List<GitUser>> = MutableLiveData()
+    val users: LiveData<List<GitUser>> = _users
 
     fun fetchUsers() {
         viewModelScope.launch {
-            users.value = loader.fetchUsers()
+            _users.value = loader.fetchUsers()
         }
     }
 }

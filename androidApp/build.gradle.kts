@@ -20,6 +20,8 @@ dependencies {
     implementation(Compose.compiler)
     implementation(Compose.activity)
     implementation(Compose.navigation)
+    implementation(Compose.coil)
+    implementation(Compose.accompanist)
 
     implementation(Hilt.hiltAndroid)
     implementation(Hilt.hiltViewModel)

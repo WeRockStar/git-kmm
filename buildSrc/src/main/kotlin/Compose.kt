@@ -13,4 +13,7 @@ object Compose {
 
     private const val composeNavigationVersion = "2.4.0-alpha10"
     const val navigation = "androidx.navigation:navigation-compose:${composeNavigationVersion}"
+
+    const val coil = "io.coil-kt:coil-compose:1.4.0"
+    const val accompanist = "com.google.accompanist:accompanist-placeholder:0.19.0"
 }
