@@ -1,5 +1,5 @@
 object Compose {
-    const val composeVersion = "1.0.3"
+    const val composeVersion = "1.0.4"
     const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
     const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${composeVersion}"
     const val ui = "androidx.compose.ui:ui:${composeVersion}"
@@ -15,5 +15,5 @@ object Compose {
     const val navigation = "androidx.navigation:navigation-compose:${composeNavigationVersion}"
 
     const val coil = "io.coil-kt:coil-compose:1.4.0"
-    const val accompanist = "com.google.accompanist:accompanist-placeholder:0.19.0"
+    const val accompanist = "com.google.accompanist:accompanist-placeholder:0.20.0"
 }
