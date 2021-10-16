@@ -35,8 +35,8 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
+                implementation(kotlin(Testing.common))
+                implementation(kotlin(Testing.annotationCommon))
             }
         }
         val androidMain by getting {
@@ -46,8 +46,8 @@ kotlin {
         }
         val androidTest by getting {
             dependencies {
-                implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.2")
+                implementation(kotlin(Testing.kotlinJunit))
+                implementation(Testing.junit)
             }
         }
         val iosMain by getting {
