@@ -3,4 +3,5 @@ object AndroidApp {
     const val targetSdk = 31
     const val compileSdk = 31
     const val applicationId = "com.werockstar.git_kmm.android"
+    const val androidApplicationModule = "com.android.application"
 }

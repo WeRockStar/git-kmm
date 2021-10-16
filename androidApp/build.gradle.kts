@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id(AndroidApp.androidApplicationModule)
     kotlin(KotlinPlugins.android)
     kotlin(KotlinPlugins.kapt)
     id(Hilt.hiltPlugin)
@@ -40,8 +40,14 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
+            isDebuggable = false
+            isShrinkResources = true
         }
-
+        getByName("debug") {
+            isDebuggable = true
+            isShrinkResources = false
+            isMinifyEnabled = false
+        }
     }
     buildFeatures {
         compose = true
