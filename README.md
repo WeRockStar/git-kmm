@@ -14,6 +14,7 @@ Which parts that we would like to share?
 ### Kotlin Multiplatform
 - Ktor
 - Kotlin Serializable
+- Logging
 
 ### Android
 - Jetpack Compose
