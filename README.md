@@ -11,12 +11,13 @@ Which parts that we would like to share?
 3. Logging
 4. Common data model
 
-#### Kotlin Multiplatform
+### Kotlin Multiplatform
 - Ktor
+- Kotlin Serializable
 
-#### Android
+### Android
 - Jetpack Compose
 - Hilt
 
-#### iOS
+### iOS
 - SwiftUI version 3 (iOS 15)
