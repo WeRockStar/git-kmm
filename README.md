@@ -1,7 +1,8 @@
 # Kotlin Multiplatform Mobile + Declarative UI Framework
 
 ```
-Save effort and have fun with the latest UI framework.
+Write one and try to sharing anywhere. 
+Still great user experience, performance, and go fast with latest technology.
 ```
 
 Which parts that we would like to share?
