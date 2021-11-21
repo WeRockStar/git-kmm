@@ -1,5 +1,5 @@
 object Compose {
-    const val composeVersion = "1.0.4"
+    const val composeVersion = "1.0.5"
     const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
     const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${composeVersion}"
     const val ui = "androidx.compose.ui:ui:${composeVersion}"
@@ -11,7 +11,7 @@ object Compose {
     private const val composeActivitiesVersion = "1.3.0"
     const val activity = "androidx.activity:activity-compose:${composeActivitiesVersion}"
 
-    private const val composeNavigationVersion = "2.4.0-beta01"
+    private const val composeNavigationVersion = "2.4.0-beta02"
     const val navigation = "androidx.navigation:navigation-compose:${composeNavigationVersion}"
 
     const val coil = "io.coil-kt:coil-compose:1.4.0"
