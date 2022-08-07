@@ -3,7 +3,7 @@
 //  iosApp
 //
 //  Created by Kotchaphan Muangsan on 13/10/2564 BE.
-//  Copyright © 2564 BE orgName. All rights reserved.
+//  Copyright © 2564 BE WeRockStar. All rights reserved.
 //
 
 import SwiftUI
