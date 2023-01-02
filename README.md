@@ -1,4 +1,7 @@
 # Kotlin Multiplatform Mobile + Declarative UI Framework
+![android-ci](https://github.com/werockstar/git-kmm/actions/workflows/android-ci.yaml/badge.svg)
+![ios-ci](https://github.com/werockstar/git-kmm/actions/workflows/ios-ci.yaml/badge.svg)
+
 
 ```
 Write one and try to sharing anywhere. 
