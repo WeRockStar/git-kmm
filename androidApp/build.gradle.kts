@@ -62,4 +62,5 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Compose.composeVersion
     }
+    namespace = "com.werockstar.git_kmm.android"
 }
