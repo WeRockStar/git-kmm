@@ -3,8 +3,6 @@ on: [push]
 jobs:
   Run-All-Tests:
     runs-on: ubuntu-latest
-
-      - name: checkout
         uses: actions/checkout@v2
       - name: JDK11
         uses: actions/setup-java@v1
