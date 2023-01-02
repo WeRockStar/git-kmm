@@ -1,4 +1,4 @@
-name: Android CI pipeline
+name: android-ci
 on:
   push:
     branches:

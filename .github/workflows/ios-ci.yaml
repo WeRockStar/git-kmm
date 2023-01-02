@@ -1,4 +1,4 @@
-name: iOS CI pipeline
+name: ios-ci
 on:
   push:
     branches:
