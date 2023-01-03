@@ -21,7 +21,7 @@ jobs:
         run: |
           git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
           cd Mobile-Security-Framework-MobSF
-          python3 -m pip install -r requirements.txt
+          python3 -m pip install --no-cache-dir --use-deprecated=legacy-resolver -r requirements.txt
       - name: Run MobSF
         run: |
           cd Mobile-Security-Framework-MobSF
