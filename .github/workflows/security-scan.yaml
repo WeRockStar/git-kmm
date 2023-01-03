@@ -1,0 +1,28 @@
+name: Mobile Security Scan
+on:
+  push:
+    branches: [main]
+jobs:
+  mobsf:
+    name: Mobile Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+          with:
+            java-version: 11
+      - name: Install Python
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+      - name: Install MobSF
+        run: |
+          git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
+          cd Mobile-Security-Framework-MobSF
+          python3 -m pip install -r requirements.txt
+      - name: Run MobSF
+        run: |
+          cd Mobile-Security-Framework-MobSF
+          python3 manage.py runserver 0.0.0.0:8000
