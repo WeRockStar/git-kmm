@@ -8,12 +8,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-            curl -L -o detekt-cli.jar https://github.com/detekt/detekt/releases/download/v1.13.0/detekt-cli-1.13.0-all.jar
+            curl -sSLO https://github.com/detekt/detekt/releases/download/v1.22.0/detekt-cli-1.22.0-all.jar
       - uses: actions/setup-java@v1
         with:
           java-version: 11
       - run: | 
-          java -jar detekt-cli-1.13.0-all.jar --config path/to/detekt.yml --input path/to/src --output path/to/output
+          java -jar detekt-cli-1.22.0-all.jar --config path/to/detekt.yml --input path/to/src --output path/to/output
       - uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.4
