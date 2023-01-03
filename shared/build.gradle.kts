@@ -66,5 +66,5 @@ android {
         minSdk = AndroidApp.minSdk
         targetSdk = AndroidApp.targetSdk
     }
-    namespace = "com.werockstar.git_kmm"
+    namespace = "com.werockstar.gitkmm"
 }
