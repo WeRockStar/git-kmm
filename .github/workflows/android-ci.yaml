@@ -11,7 +11,7 @@ jobs:
         with:
           java-version: 11
       - uses: JetBrains/setup-kotlin@v1
-          run: |
+        run: |
             curl -L -o detekt-cli.jar https://github.com/detekt/detekt/releases/download/v1.13.0/detekt-cli-1.13.0-all.jar
       - run: | 
           java -jar detekt-cli.jar --config path/to/detekt.yml --input path/to/src --output path/to/output
