@@ -1,8 +1,7 @@
 name: android-ci
 on:
   push:
-    branches:
-      - '**'
+    branches: [main]
 jobs:
   run-all-tests:
     runs-on: ubuntu-latest
