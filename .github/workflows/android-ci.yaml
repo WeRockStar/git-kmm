@@ -32,12 +32,12 @@ jobs:
         uses: actions/checkout@v2
       - name: mobsfscan
         uses: MobSF/mobsfscan@main
-          with:
-            args: '. --sarif --output results.sarif || true'
+        with:
+          args: '. --sarif --output results.sarif || true'
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
-          with:
-            sarif_file: results.sarif
+        with:
+          sarif_file: results.sarif
         timeout-minutes: 10
   build:
     name: Build APK
