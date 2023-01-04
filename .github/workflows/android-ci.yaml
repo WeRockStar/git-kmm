@@ -56,6 +56,7 @@ jobs:
           arguments: assDe
   clean-up:
     name: Clean up cache
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/cache@v2
         with:
