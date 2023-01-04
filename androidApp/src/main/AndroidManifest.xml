@@ -6,6 +6,8 @@
     <application
         android:name=".App"
         android:supportsRtl="true"
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".AppActivity"
