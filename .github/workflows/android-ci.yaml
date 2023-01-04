@@ -54,3 +54,14 @@ jobs:
         with:
           gradle-version: 7.4
           arguments: assDe
+  clean-up:
+    name: Clean up cache
+    steps:
+      - uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches/
+          key: ${{ runner.os }}-build
+          restore-keys: |
+            ${{ runner.os }}-build
+            ${{ runner.os }}-
+          clean: true
