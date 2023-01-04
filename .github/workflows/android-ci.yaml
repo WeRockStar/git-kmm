@@ -47,6 +47,7 @@ jobs:
         timeout-minutes: 10
   build:
     name: Build APK
+    needs: unit-tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -56,6 +57,6 @@ jobs:
         with:
           java-version: 11
       - uses: gradle/gradle-build-action@v2
-          with:
-            gradle-version: 7.4
-            arguments: assDe
+        with:
+          gradle-version: 7.4
+          arguments: assDe
