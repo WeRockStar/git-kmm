@@ -4,4 +4,6 @@ object AndroidApp {
     const val compileSdk = 33
     const val applicationId = "com.werockstar.gitkmm.android"
     const val androidApplicationModule = "com.android.application"
+    const val detekt = "io.gitlab.arturbosch.detekt"
+    const val deteKtVersion = "1.22.0"
 }

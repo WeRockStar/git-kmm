@@ -3,6 +3,7 @@ plugins {
     kotlin(KotlinPlugins.android)
     kotlin(KotlinPlugins.kapt)
     id(Hilt.hiltPlugin)
+    id(AndroidApp.detekt).version(AndroidApp.deteKtVersion)
 }
 
 dependencies {
