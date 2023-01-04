@@ -56,6 +56,8 @@ jobs:
           arguments: assDe
   clean-up:
     name: Clean up cache
+    if: ${{ always() }}
+    needs: [unit-tests, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/cache@v2
