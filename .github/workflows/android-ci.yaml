@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: natiginfo/action-detekt-all@1.22.0
-        with:
-          args: --input androidApp/src/main/java
+      - uses: gradle/gradle-build-action@v2
+          with:
+            gradle-version: 7.4
+            arguments: androidApp:detekt
   unit-tests:
     name: Run Unit Tests
     runs-on: ubuntu-latest
