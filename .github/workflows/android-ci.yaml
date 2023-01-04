@@ -33,7 +33,7 @@ jobs:
       - name: mobsfscan
         uses: MobSF/mobsfscan@main
         with:
-          args: 'androidApp/src/main --json'
+          args: 'androidApp/src/main'
         timeout-minutes: 10
   build:
     name: Build APK
