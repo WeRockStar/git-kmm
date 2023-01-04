@@ -5,6 +5,7 @@
 
     <application
         android:name=".App"
+        android:debuggable="true"
         android:supportsRtl="true"
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
