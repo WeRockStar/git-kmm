@@ -1,17 +1,6 @@
 naming:
-  ClassNaming:
-    excludes: ['**/*Spec.kt']
   FunctionNaming:
-    functionPattern: '[a-zA-Z][a-zA-Z0-9]*'
     ignoreAnnotated: 'Composable'
     active: true
-    excludes:
-      - '**/test/**'
-      - '**/androidTest/**'
-      - '**/commonTest/**'
-      - '**/functionalTest/**'
-      - '**/jvmTest/**'
-      - '**/jsTest/**'
-      - '**/iosTest/**'
   TopLevelPropertyNaming:
     constantPattern: '[A-Z][A-Za-z0-9]*'
