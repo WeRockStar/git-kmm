@@ -33,7 +33,11 @@ jobs:
       - name: mobsfscan
         uses: MobSF/mobsfscan@main
         with:
-          args: 'androidApp/src/main'
+          args: 'androidApp/src/main --sarif --output results.sarif || true'
+      - name: Upload mobsfscan report
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
         timeout-minutes: 10
   build:
     name: Build APK
