@@ -6,6 +6,13 @@ plugins {
     id(AndroidApp.detekt).version(AndroidApp.deteKtVersion)
 }
 
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    config = files("$projectDir/config/detekt.yml")
+}
+
+
 dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.4.0")
