@@ -13,7 +13,7 @@ jobs:
           gradle-version: 7.4
           arguments: androidApp:detekt
   kmm-test:
-    name: shared:Unit Test
+    name: shared:Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
