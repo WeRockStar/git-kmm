@@ -3,6 +3,15 @@ on:
   push:
     branches: [main]
 jobs:
+  kmm:
+    name: Build Shared module
+    runs-one: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.4
+          arguments: shared:build
   lint:
     name: Static Analyzer Check
     runs-on: ubuntu-latest
@@ -15,6 +24,7 @@ jobs:
   unit-tests:
     name: Run Unit Tests
     runs-on: ubuntu-latest
+    needs: [kmm]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v1
