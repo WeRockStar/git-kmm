@@ -13,7 +13,7 @@ jobs:
           gradle-version: 7.4
           arguments: androidApp:detekt
   kmm-test:
-    name: Run Unit Test on shared module
+    name: shared:Unit Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
           gradle-version: 7.4
           arguments: shared:test
   unit-tests:
-    name: Run Unit Tests
+    name: androidApp:Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
