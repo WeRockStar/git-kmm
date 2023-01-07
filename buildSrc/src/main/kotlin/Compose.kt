@@ -16,4 +16,7 @@ object Compose {
 
     const val coil = "io.coil-kt:coil-compose:2.2.2"
     const val accompanist = "com.google.accompanist:accompanist-placeholder:0.27.0"
+
+    const val composeJUnitUITest = "androidx.compose.ui:ui-test-junit4:${composeVersion}"
+    const val composeUITestManifest = "androidx.compose.ui:ui-test-manifest:${composeVersion}"
 }

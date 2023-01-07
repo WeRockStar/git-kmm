@@ -31,7 +31,7 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.coil)
     implementation(Compose.accompanist)
-    debugImplementation("androidx.compose.ui:ui-test-manifest:${Compose.composeVersion}")
+    debugImplementation(Compose.composeUITestManifest)
 
     implementation(Hilt.hiltAndroid)
     implementation(Hilt.hiltViewModel)
@@ -39,8 +39,8 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Compose.composeVersion}")
-    androidTestImplementation("androidx.compose.ui:ui-test-manifest:${Compose.composeVersion}")
+    androidTestImplementation(Compose.composeJUnitUITest)
+    androidTestImplementation(Compose.composeUITestManifest)
 }
 
 android {
