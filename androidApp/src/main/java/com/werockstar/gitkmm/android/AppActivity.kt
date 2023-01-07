@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.werockstar.gitkmm.android.ui.GitUserScreen
 import com.werockstar.gitkmm.android.ui.GitUserViewModel
 import com.werockstar.gitkmm.android.ui.composable.AppBar
-import com.werockstar.gitkmm.ui.GitUser
+import com.werockstar.gitkmm.ui.GithubUser
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +33,7 @@ class AppActivity : AppCompatActivity() {
 }
 
 @Composable
-fun GitUserApp(users: List<GitUser>) {
+fun GitUserApp(users: List<GithubUser>) {
     Scaffold(topBar = {
         AppBar()
     }) {
@@ -44,6 +44,6 @@ fun GitUserApp(users: List<GitUser>) {
 @Composable
 @Preview
 fun GitUserAppPreview() {
-    val users = listOf(GitUser("WeRockStar", "", ""))
+    val users = listOf(GithubUser("WeRockStar", "", ""))
     GitUserApp(users)
 }

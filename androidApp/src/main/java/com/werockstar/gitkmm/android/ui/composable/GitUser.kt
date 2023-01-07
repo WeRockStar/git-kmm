@@ -17,10 +17,10 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.werockstar.gitkmm.ui.GitUser
+import com.werockstar.gitkmm.ui.GithubUser
 
 @Composable
-fun GitUser(user: GitUser) {
+fun GitUser(user: GithubUser) {
     Card(modifier = Modifier.fillMaxWidth(), elevation = 4.dp, shape = RectangleShape) {
         Row {
             val modifier = Modifier
@@ -56,5 +56,5 @@ fun GitUser(user: GitUser) {
 @Preview
 @Composable
 fun GitUserPreview() {
-    GitUser(user = GitUser("WeRockStar", "", "Kotchaphan Muangsan"))
+    GitUser(user = GithubUser("WeRockStar", "", "Kotchaphan Muangsan"))
 }

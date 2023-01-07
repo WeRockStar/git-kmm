@@ -4,6 +4,7 @@ plugins {
     kotlin(KotlinPlugins.kapt)
     id(Hilt.hiltPlugin)
     id(AndroidApp.detekt).version(AndroidApp.deteKtVersion)
+    id("shot")
 }
 
 detekt {
@@ -30,10 +31,16 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.coil)
     implementation(Compose.accompanist)
+    debugImplementation("androidx.compose.ui:ui-test-manifest:${Compose.composeVersion}")
 
     implementation(Hilt.hiltAndroid)
     implementation(Hilt.hiltViewModel)
     kapt(Hilt.hiltCompiler)
+
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Compose.composeVersion}")
+    androidTestImplementation("androidx.compose.ui:ui-test-manifest:${Compose.composeVersion}")
 }
 
 android {
@@ -44,7 +51,11 @@ android {
         targetSdk = AndroidApp.targetSdk
         versionCode = 1
         versionName = "1.0"
+
+        testInstrumentationRunner = "com.karumi.shot.ShotTestRunner"
+        testApplicationId = "com.werockstar.gitkmm.android.test"
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -71,4 +82,8 @@ android {
         kotlinCompilerExtensionVersion = Compose.composeVersion
     }
     namespace = "com.werockstar.gitkmm.android"
+}
+
+shot {
+    tolerance =  0.15
 }
