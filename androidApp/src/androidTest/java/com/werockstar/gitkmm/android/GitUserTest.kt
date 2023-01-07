@@ -13,7 +13,7 @@ class GitUserTest : ScreenshotTest {
     val composeRule = createComposeRule()
 
     @Test
-    fun git_user_composable() {
+    fun github_user() {
         val user = GithubUser("WeRockStar", "https://google.com/image.jpg", "Kotchaphan Muangsan")
         composeRule.setContent {
             GitUser(user = user)
