@@ -2,6 +2,10 @@ name: Android CI
 on:
   push:
     branches: [ main ]
+
+env:
+  GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
+
 jobs:
   lint:
     name: Static Analyzer Check
@@ -65,7 +69,7 @@ jobs:
           profile: Nexus 6
           disable-animations: true
           script: ./gradlew androidApp:debugExecuteScreenshotTests -PprintBase64
-        timeout-minutes: 10
+        timeout-minutes: 15
   build:
     name: Build APK
     needs: [ lint, security-scan, unit-tests, snapshot-tests ]
