@@ -1,7 +1,7 @@
 name: Android CI
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 jobs:
   lint:
     name: Static Analyzer Check
@@ -48,9 +48,32 @@ jobs:
         with:
           sarif_file: results.sarif
         timeout-minutes: 10
+  snapshot-tests:
+    name: Snapshot Tests
+    runs-on: macos-latest
+    need: [ lint, security-scan, kmm-test, unit-tests ]
+    strategy:
+      matrix:
+        api-level: [ 31 ]
+        target: [ google_apis ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Run Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86_64
+          profile: Pixel 3
+          script: ./gradlew androidApp:debugExecuteScreenshotTests
+
   build:
     name: Build APK
-    needs: [lint, security-scan, kmm-test, unit-tests]
+    needs: [ snapshot-tests ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
