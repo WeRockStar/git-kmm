@@ -86,4 +86,5 @@ android {
 
 shot {
     tolerance =  0.15
+    showOnlyFailingTestsInReports = true
 }
