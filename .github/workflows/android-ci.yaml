@@ -51,7 +51,7 @@ jobs:
   snapshot-tests:
     name: Snapshot Tests
     runs-on: macos-latest
-    need: [ lint, security-scan, kmm-test, unit-tests ]
+    needs: [ lint, security-scan, kmm-test, unit-tests ]
     strategy:
       matrix:
         api-level: [ 31 ]
@@ -73,7 +73,7 @@ jobs:
 
   build:
     name: Build APK
-    needs: [ snapshot-tests ]
+    needs: [ lint, security-scan, kmm-test, unit-tests, snapshot-tests ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
