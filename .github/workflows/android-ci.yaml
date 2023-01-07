@@ -70,6 +70,11 @@ jobs:
           disable-animations: true
           script: ./gradlew androidApp:debugExecuteScreenshotTests -PprintBase64
         timeout-minutes: 20
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Snapshot Tests Report
+          path: /androidApp/build/reports/shot/debug/verification/index.html
   build:
     name: Build APK
     needs: [ lint, security-scan, unit-tests, snapshot-tests ]
