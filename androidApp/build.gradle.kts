@@ -3,8 +3,8 @@ plugins {
     kotlin(KotlinPlugins.android)
     kotlin(KotlinPlugins.kapt)
     id(Hilt.hiltPlugin)
-    id(AndroidApp.detekt).version(AndroidApp.deteKtVersion)
-    id("shot")
+    id(AndroidApp.detekt).version(AndroidApp.detektVersion)
+    id(Testing.snapshotTest)
 }
 
 detekt {
