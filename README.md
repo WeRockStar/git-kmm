@@ -22,6 +22,7 @@ Which parts that we would like to share?
 ### Android
 - Jetpack Compose
 - Hilt
+- Snapshot Testing
 
 ### iOS
 - SwiftUI version 3 (iOS 15)
