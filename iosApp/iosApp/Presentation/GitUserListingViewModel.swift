@@ -13,7 +13,7 @@ final class GitUserListingViewModel: ObservableObject {
     
     private let loader: GitLoader
     
-    @Published var users: [GitUser] = []
+    @Published var users: [GithubUser] = []
     
     init(loader: GitLoader) {
         self.loader = loader

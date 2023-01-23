@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 
 struct GitUserView: View {
-    let user: GitUser
+    let user: GithubUser
     
     var body: some View {
         HStack {
