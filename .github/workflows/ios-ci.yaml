@@ -4,13 +4,19 @@ on:
     branches: [main]
 jobs:
   run-all-tests:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v1
         with:
           java-version: 11
-      - uses: gradle/gradle-build-action@v2
+      - uses: actions/setup-xcode@v2
         with:
-          gradle-version: 7.4
-          arguments: iosTest
+          xcode-version: 14.2
+      - uses: actions/xcode-test@v2
+        with:
+          xcworkspace: iosApp.xcodeproj
+          scheme: iosApp
+          configuration: Debug
+          sdk: iphonesimulator
+          destination: 'platform=iOS,name=iPhone 14 Pro Max'
