@@ -3,7 +3,7 @@ repos:
   - repo: local
     hooks:
       - id: unit-test
-        name: unit-test
+        name: unit test
         entry: ./scripts/test.sh
         language: script
         pass_filenames: false
