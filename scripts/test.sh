@@ -1,5 +1,5 @@
 #!/bin/sh
 
 pushd ..
-./gradlew androidApp:test
+make droid-test
 popd
