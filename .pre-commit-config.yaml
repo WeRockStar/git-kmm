@@ -1,10 +1,10 @@
 default_stages: [commit]
 repos:
   - repo: local
-      hooks:
-        - id: unit-test
-          name: unit-test
-          entry: .
-          language: script
-          pass_filenames: false
-          verbose: true
+    hooks:
+      - id: unit-test
+        name: unit-test
+        entry: ./scripts/test.sh
+        language: script
+        pass_filenames: false
+        verbose: true
