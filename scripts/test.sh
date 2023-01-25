@@ -1,3 +1,3 @@
 #!/bin/sh
 
-make droid-test
+make all-check
