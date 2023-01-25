@@ -14,7 +14,7 @@ class GitUserTest : ScreenshotTest {
 
     @Test
     fun github_user() {
-        val user = GithubUser("WeRockStar", "https://google.com/image.jpg", "Kotchaphan Muangsan")
+        val user = GithubUser("WeRockStar", "https://google.com/image.jpg", "Kotchaphan Muangsan", 1)
         composeRule.setContent {
             GitUser(user = user)
         }
