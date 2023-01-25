@@ -10,6 +10,6 @@ class GitLoader {
 
     suspend fun fetchUsers(): List<GithubUser> {
         return httpClient.get<List<GitUserResponse>>(GitURL.USERS)
-            .map { GithubUser(it.username, it.avatarUrl, it.name) }
+            .map { GithubUser(it.username, it.avatarUrl, it.name, it.id) }
     }
 }

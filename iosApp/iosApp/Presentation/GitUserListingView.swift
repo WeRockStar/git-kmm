@@ -8,7 +8,7 @@ struct GitUserListingView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.users, id: \.username) { user in
+                ForEach(viewModel.users, id: \.id) { user in
                     GitUserView(user: user)
                 }
             }.navigationTitle("KMM (SwiftUI)")

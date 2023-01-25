@@ -1,3 +1,3 @@
 #!/bin/sh
 
-make droid-all-test
+make ios-test droid-all-test

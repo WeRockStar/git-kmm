@@ -56,5 +56,5 @@ fun GitUser(user: GithubUser) {
 @Preview
 @Composable
 fun GitUserPreview() {
-    GitUser(user = GithubUser("WeRockStar", "", "Kotchaphan Muangsan"))
+    GitUser(user = GithubUser("WeRockStar", "", "Kotchaphan Muangsan", 1))
 }
