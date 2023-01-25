@@ -1,7 +1,8 @@
 name: iOS CI
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+    paths: [ 'shared/**', 'iosApp/**' ]
 jobs:
   build:
     runs-on: macos-latest

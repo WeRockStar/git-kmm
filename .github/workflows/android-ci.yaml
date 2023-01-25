@@ -2,6 +2,7 @@ name: Android CI
 on:
   push:
     branches: [ main ]
+    paths: [ 'shared/**', 'android/**' ]
 
 env:
   GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
