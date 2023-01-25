@@ -24,7 +24,7 @@ class AppActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LaunchedEffect(Unit) {
-                viewModel.fetchUsers()
+                viewModel.fetchGithubUsers()
             }
             val users = viewModel.users.observeAsState(emptyList())
             GitUserApp(users.value)

@@ -16,7 +16,7 @@ class GitUserViewModel @Inject constructor(private val loader: GitLoader) : View
     private val _users: MutableLiveData<List<GithubUser>> = MutableLiveData()
     val users: LiveData<List<GithubUser>> = _users
 
-    fun fetchUsers() {
+    fun fetchGithubUsers() {
         viewModelScope.launch {
             _users.value = loader.fetchUsers()
         }
