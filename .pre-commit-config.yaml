@@ -4,7 +4,7 @@ repos:
     hooks:
       - id: unit-test
         name: unit test
-        entry: ./scripts/test.sh
+        entry: ./scripts/pre-commit.sh
         language: script
         pass_filenames: false
         verbose: true
