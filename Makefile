@@ -3,6 +3,8 @@ clean:
 
 droid-test:
 	./gradlew androidApp:test
+droid-build:
+	./gradlew androidApp:assDe
 
 kmm-test:
 	./gradlew shared:test
@@ -23,4 +25,4 @@ ios-test:
 
 ios-all-test: kmm-test ios-test
 
-all-check: droid-all-test ios-test ios-build
+all-check: kmm-test droid-test droid-build ios-test ios-build
