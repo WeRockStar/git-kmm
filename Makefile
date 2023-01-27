@@ -21,4 +21,6 @@ ios-test:
 	-sdk iphonesimulator \
 	-destination 'platform=iOS Simulator,name=iPhone 14 Pro Max' test
 
+ios-all-test: kmm-test ios-test
+
 all-check: droid-all-test ios-test ios-build

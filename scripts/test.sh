@@ -1,3 +1,3 @@
 #!/bin/sh
 
-make ios-test droid-all-test
+make kmm-test ios-test droid-test
