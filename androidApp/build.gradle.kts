@@ -36,8 +36,8 @@ dependencies {
     implementation(Hilt.hiltViewModel)
     kapt(Hilt.hiltCompiler)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("junit:junit:4.13.2")
+    testImplementation(Testing.junit)
+    androidTestImplementation(Testing.junit)
     androidTestImplementation(Compose.composeJUnitUITest)
     androidTestImplementation(Compose.composeUITestManifest)
 }
