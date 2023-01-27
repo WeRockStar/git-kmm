@@ -25,4 +25,5 @@ ios-test:
 
 ios-all-test: kmm-test ios-test
 
+all-build: droid-build ios-build
 all-check: kmm-test droid-test droid-build ios-test ios-build
