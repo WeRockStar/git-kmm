@@ -16,8 +16,8 @@ detekt {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.appcompat:appcompat:1.6.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(AndroidApp.appCompat)
+    implementation(AndroidApp.constraintLayout)
 
     implementation(Compose.runtime)
     implementation(Compose.runtimeLiveData)
@@ -80,7 +80,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Compose.composeVersion
     }
-    namespace = "com.werockstar.gitkmm.android"
+    namespace = AndroidApp.applicationId
 }
 
 shot {
