@@ -15,7 +15,7 @@ kmm-test:
 droid-all-test: kmm-test droid-test
 
 ios-linter:
-	swiftlint
+	swiftlint lint --strict
 
 ios-build:
 	xcodebuild -project iosApp/iosApp.xcodeproj \
