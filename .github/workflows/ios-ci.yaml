@@ -11,7 +11,7 @@ jobs:
       - name: Install Swiftlint
         run: |
           brew install swiftlint@0.50.3
-      - run: swiftlint lint --strict
+      - run: make ios-linter
   unit-test:
     runs-on: macos-latest
     needs: [ lint ]
