@@ -21,7 +21,7 @@ final class GitUserListingViewModel: ObservableObject {
     }
     
     func fetchUsers() {
-        loader.fetchUsers(completionHandler: { users, error in
+        loader.fetchUsers(completionHandler: { users, _ in
             guard let users = users else { return }
             self.users = users
         })

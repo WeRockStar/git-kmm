@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		2152FB042600AC8F00CF470E /* GitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* GitApp.swift */; };
 		7555FF83242A565900829871 /* GitUserListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* GitUserListingView.swift */; };
 		DF7864732716F5BE0056BAD9 /* GitUserListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7864722716F5BE0056BAD9 /* GitUserListingViewModel.swift */; };
 		DF7864762716FEDC0056BAD9 /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7864752716FEDC0056BAD9 /* UserImageView.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		2152FB032600AC8F00CF470E /* GitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* GitUserListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitUserListingView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 				DF7864792716FF3B0056BAD9 /* Presentation */,
 				DF7864742716FECD0056BAD9 /* View */,
 				7555FF8C242A565B00829871 /* Info.plist */,
-				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				2152FB032600AC8F00CF470E /* GitApp.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -265,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				2152FB042600AC8F00CF470E /* GitApp.swift in Sources */,
 				DF7864732716F5BE0056BAD9 /* GitUserListingViewModel.swift in Sources */,
 				7555FF83242A565900829871 /* GitUserListingView.swift in Sources */,
 				DF7864782716FEF70056BAD9 /* PlaceholderImageView.swift in Sources */,

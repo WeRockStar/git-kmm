@@ -2,7 +2,7 @@ import SwiftUI
 import shared
 
 @main
-struct iOSApp: App {
+struct GitApp: App {
     
     private let viewModel = GitUserListingViewModel(loader: GitLoader())
     
