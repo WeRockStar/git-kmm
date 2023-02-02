@@ -1,6 +1,9 @@
 clean:
 	./gradlew clean
 
+droid-linter:
+	./gradlew detekt
+
 droid-test:
 	./gradlew androidApp:test
 droid-build:
@@ -10,6 +13,9 @@ kmm-test:
 	./gradlew shared:test
 
 droid-all-test: kmm-test droid-test
+
+ios-linter:
+	swiftlint
 
 ios-build:
 	xcodebuild -project iosApp/iosApp.xcodeproj \

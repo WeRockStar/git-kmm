@@ -2,9 +2,15 @@ default_stages: [commit]
 repos:
   - repo: local
     hooks:
+      - id: linter
+        name: linter
+        entry: ./scripts/pre-commit-linter.sh
+        language: script
+        pass_filenames: false
+        verbose: true
       - id: unit-test
         name: unit test
-        entry: ./scripts/pre-commit.sh
+        entry: ./scripts/pre-commit-test.sh
         language: script
         pass_filenames: false
         verbose: true
