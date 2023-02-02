@@ -10,16 +10,16 @@ import shared
 import Combine
 
 final class GitUserListingViewModel: ObservableObject {
-    
+
     private let loader: GitLoader
-    
+
     @Published var users: [GithubUser] = []
-    
+
     init(loader: GitLoader) {
         self.loader = loader
         fetchUsers()
     }
-    
+
     func fetchUsers() {
         loader.fetchUsers(completionHandler: { users, _ in
             guard let users = users else { return }

@@ -2,9 +2,9 @@ import SwiftUI
 import shared
 
 struct GitUserListingView: View {
-    
+
     @EnvironmentObject var viewModel: GitUserListingViewModel
-    
+
     var body: some View {
         NavigationView {
             List {

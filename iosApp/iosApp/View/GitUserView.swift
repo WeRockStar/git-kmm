@@ -11,7 +11,7 @@ import shared
 
 struct GitUserView: View {
     let user: GithubUser
-    
+
     var body: some View {
         HStack {
             UserImageView(imageUrl: user.avatarUrl.orEmpty())

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UserImageView: View {
     let imageUrl: String
-    
+
     var body: some View {
         AsyncImage(url: URL(string: imageUrl)) { image in
             image.resizable()

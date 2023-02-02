@@ -15,4 +15,3 @@ struct PlaceholderImageView: View {
             .background(.gray)
     }
 }
-
