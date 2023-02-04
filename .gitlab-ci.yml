@@ -67,6 +67,14 @@ deploy-uat:
     - echo "Deploying application..."
   when: manual
 
+build-uat:    
+  stage: deploy-uat
+  environment: uat
+  needs:
+    - job: deploy-uat
+  script:
+    - echo "Deploying application..."
+
 deploy-prod:    
   stage: deploy-prod
   environment: uat
