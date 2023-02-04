@@ -11,10 +11,10 @@ before_script:
   - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
   - unzip -d android-sdk-linux android-sdk.zip  
   - rm android-sdk.zip 
-  - mkdir android-sdk-latest; cd android-sdk-latest
-  - mkdir cmdline-tools; cd cmdline-tools
+  - mkdir android-sdk-latest; pushd android-sdk-latest
+  - mkdir cmdline-tools; pushd cmdline-tools
   - mkdir latest
-  - cd ../..
+  - popd; popd
   - mv android-sdk-linux/cmdline-tools/* android-sdk-latest/cmdline-tools/latest
   - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
   - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "platform-tools" >/dev/null
@@ -75,9 +75,19 @@ build-uat:
   script:
     - echo "Deploying application..."
 
+release-uat:    
+  stage: deploy-uat
+  environment: uat
+  needs:
+    - job: build-uat
+  script:
+    - echo "Deploying application..."
+
 deploy-prod:    
   stage: deploy-prod
-  environment: uat
+  environment: prod
+  needs:
+    - job: release-uat
   script:
     - echo "Deploying application..."
   when: manual
