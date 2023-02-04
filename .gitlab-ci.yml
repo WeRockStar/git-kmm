@@ -57,6 +57,8 @@ build-android:
 deploy-dev:    
   stage: deploy-dev
   environment: dev
+  tags:
+    - m1-runner
   script:
     - echo "Deploying application..."
 
