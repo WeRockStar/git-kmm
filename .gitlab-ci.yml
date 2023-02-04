@@ -58,7 +58,7 @@ deploy-dev:
   stage: deploy-dev
   environment: dev
   tags:
-    - m1-runner
+    - shared-macos-amd64
   script:
     - echo "Deploying application..."
 
