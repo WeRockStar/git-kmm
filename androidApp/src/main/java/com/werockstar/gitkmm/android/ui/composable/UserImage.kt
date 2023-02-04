@@ -13,5 +13,3 @@ fun UserImage(url: String?, contentDescription: String = "", modifier: Modifier)
         modifier = modifier
     )
 }
-
-fun Todo() = "Pipeline should fail"

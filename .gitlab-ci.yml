@@ -30,7 +30,9 @@ stages:
   - lint
   - test
   - build
-  - deploy
+  - deploy-dev
+  - deploy-uat
+  - deploy-prod
 
 linter-android:   
   stage: lint
@@ -52,8 +54,22 @@ build-android:
   script:
     - ./gradlew androidApp:assDe
 
-deploy:    
-  stage: deploy 
-  environment: production
+deploy-dev:    
+  stage: deploy-dev
+  environment: dev
   script:
     - echo "Deploying application..."
+
+deploy-uat:    
+  stage: deploy-uat
+  environment: uat
+  script:
+    - echo "Deploying application..."
+  when: manual
+
+deploy-prod:    
+  stage: deploy-prod
+  environment: uat
+  script:
+    - echo "Deploying application..."
+  when: manual
