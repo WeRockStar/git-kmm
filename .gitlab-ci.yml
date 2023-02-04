@@ -82,6 +82,7 @@ release-uat:
   environment: uat
   needs:
     - job: build-uat
+      artifacts: false
   script:
     - echo "Deploying application..."
 
