@@ -32,22 +32,22 @@ stages:
   - build
   - deploy
 
-lint-test-job:   
+linter:   
   stage: lint
   script:
     - ./gradlew detekt
 
-unit-test-job:   
+unit-test:   
   stage: test    
   script:
     - ./gradlew androidApp:test
 
-build-job:
+build-android:
   stage: build
   script:
     - ./gradlew androidApp:assDe
 
-deploy-job:    
+deploy:    
   stage: deploy 
   environment: production
   script:
