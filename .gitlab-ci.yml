@@ -10,7 +10,7 @@ before_script:
   - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
   - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
   - unzip -d android-sdk-linux android-sdk.zip  
-  - cd android-sdk/cmdline-tools
+  - cd android-sdk-linux/cmdline-tools
   - mkdir latest
   - mv * latest
   - cd ../..
