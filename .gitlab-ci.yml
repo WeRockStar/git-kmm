@@ -32,10 +32,15 @@ stages:
   - build
   - deploy
 
-linter:   
+linter-android:   
   stage: lint
   script:
     - ./gradlew detekt
+
+linter-ios:   
+  stage: lint
+  script:
+    - echo "Hello, Linter"
 
 unit-test:   
   stage: test    
