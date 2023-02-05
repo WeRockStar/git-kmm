@@ -5,7 +5,7 @@ SWIFT_FILES_CHANGED="$(git --no-pager diff --name-status --no-color --cached | a
 ALL_LANGUAGE_FILES_CHANGED="$(git --no-pager diff --name-status --no-color --cached | awk '$1 != "D" && $2 ~ /\.kt/ && $2 ~ /\.swift/ { print $2}')"
 
 if [ "$ALL_LANGUAGE_FILES_CHANGED" ]; then
-  echo "Run all linter"
+  echo "Run linter for iOS and Android"
   make droid-linter ios-linter
   echo "Completed"
   exit 0
