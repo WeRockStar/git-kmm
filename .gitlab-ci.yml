@@ -36,6 +36,10 @@ stages:
 
 linter-android:   
   stage: lint
+  rules:
+    - changes: 
+        - androidApp
+        - .gitlab-ci.yml
   script:
     - ./gradlew detekt
 
