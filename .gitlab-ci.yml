@@ -8,14 +8,7 @@ variables:
 before_script:
   - apt-get --quiet update --yes
   - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
-  - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
-  - unzip -d android-sdk-linux android-sdk.zip  
-  - rm android-sdk.zip 
-  - mkdir android-sdk-latest; pushd android-sdk-latest
-  - mkdir cmdline-tools; pushd cmdline-tools
-  - mkdir latest
-  - popd; popd
-  - mv android-sdk-linux/cmdline-tools/* android-sdk-latest/cmdline-tools/latest
+  - if [ ! -d "android-sdk-latest" ]; then ./script/install-sdk.sh; fi
   - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
   - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "platform-tools" >/dev/null
   - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}" >/dev/null
