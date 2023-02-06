@@ -26,6 +26,10 @@ before_script:
   - yes | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager --licenses
   - set -o pipefail
 
+cache:
+  paths:
+    - android-sdk-latest/
+
 stages:      
   - lint
   - test
