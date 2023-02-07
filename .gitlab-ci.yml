@@ -3,6 +3,11 @@ image: werockstar/android-ci:0.0.1
 before_script:
   - chmod +x ./gradlew
 
+cache:
+  key: ${CI_PROJECT_ID}
+  paths:
+  - .gradle/
+
 stages:      
   - lint
   - test
