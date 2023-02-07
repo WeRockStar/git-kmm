@@ -1,4 +1,4 @@
-image: openjdk:11-jdk
+image: werockstar/android-ci:0.0.1
 
 variables:
   ANDROID_COMPILE_SDK: "33"
@@ -6,22 +6,7 @@ variables:
   ANDROID_SDK_TOOLS:   "9477386"
 
 before_script:
-  - apt-get --quiet update --yes
-  - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
-  - if [ ! -d "android-sdk-latest" ]; then ./script/install-sdk.sh; fi
-  - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
-  - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "platform-tools" >/dev/null
-  - echo y | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}" >/dev/null
-  - export ANDROID_HOME=$PWD/android-sdk-latest
-  - export PATH=$PATH:$PWD/android-sdk-latest/platform-tools/
   - chmod +x ./gradlew
-  - set +o pipefail
-  - yes | android-sdk-latest/cmdline-tools/latest/bin/sdkmanager --licenses
-  - set -o pipefail
-
-cache:
-  paths:
-    - android-sdk-latest/
 
 stages:      
   - lint
