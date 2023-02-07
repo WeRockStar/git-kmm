@@ -19,7 +19,7 @@ stages:
 linter-android:   
   stage: lint
   script:
-    - make droid-linter
+    - ./gradlew detekt
 
 linter-ios:   
   stage: lint
