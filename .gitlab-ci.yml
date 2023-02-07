@@ -1,6 +1,7 @@
 image: werockstar/android-ci:0.0.1
 
 before_script:
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
 
 cache:
