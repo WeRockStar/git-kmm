@@ -14,11 +14,6 @@ stages:
 linter-android:   
   stage: lint
   script:
-    - java -version
-    - echo $(pwd)
-    - ls -la
-    - chmod +x ./gradlew
-    - ls -la
     - ./gradlew detekt --stacktrace
   tags:
     - linux
