@@ -2,7 +2,6 @@ image: werockstar/android-build:0.0.1-alpha02
 
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
-  - chmod +x ./gradlew
 
 stages:      
   - lint
@@ -15,6 +14,9 @@ stages:
 linter-android:   
   stage: lint
   script:
+    - ls -la
+    - chmod +x ./gradlew
+    - ls -la
     - ./gradlew detekt --stacktrace
   tags:
     - linux
