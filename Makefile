@@ -4,7 +4,7 @@ clean:
 	./gradlew clean
 
 droid-linter:
-	./gradlew detekt
+	./gradlew detekt --stacktrace
 droid-test:
 	./gradlew androidApp:test
 droid-build:
