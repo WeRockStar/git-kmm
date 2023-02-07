@@ -19,7 +19,7 @@ stages:
 linter-android:   
   stage: lint
   script:
-    - ./gradlew detekt
+    - ./gradlew detekt --stacktrace
 
 linter-ios:   
   stage: lint
