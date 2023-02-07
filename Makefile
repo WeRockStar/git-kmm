@@ -17,12 +17,12 @@ ios-build:
 	xcodebuild -project iosApp/iosApp.xcodeproj \
 	-scheme iosApp -configuration Debug \
 	-sdk iphonesimulator \
-	-destination 'platform=iOS Simulator,name=iPhone 14 Pro Max' build
+	-destination 'platform=iOS Simulator,name=iPhone 14 Pro Max' build | xcbeautify
 ios-test:
 	xcodebuild -project iosApp/iosApp.xcodeproj \
 	-scheme iosApp -configuration Debug \
 	-sdk iphonesimulator \
-	-destination 'platform=iOS Simulator,name=iPhone 14 Pro Max' test
+	-destination 'platform=iOS Simulator,name=iPhone 14 Pro Max' test | xcbeautify
 ios-all-test: kmm-test ios-test
 
 all-build: droid-build ios-build
