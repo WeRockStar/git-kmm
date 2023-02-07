@@ -23,7 +23,7 @@ linter-android:
         - androidApp
         - .gitlab-ci.yml
   script:
-    - ./gradlew detekt
+    - make droid-linter
 
 linter-ios:   
   stage: lint
