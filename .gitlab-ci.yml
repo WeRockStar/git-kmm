@@ -8,9 +8,12 @@ variables:
 
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
-  - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  - brew install ruby
-  - gem install bundler
+
+.android:
+  before_script:
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    - brew install ruby
+    - gem install bundler
 
 stages:      
   - lint
@@ -39,6 +42,7 @@ unit-test:
 
 build-android:
   stage: build
+  extends: .android
   script:
     - bundle install
     - ./gradlew androidApp:assDe
