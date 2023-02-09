@@ -2,6 +2,8 @@ image: jangrewe/gitlab-ci-android
 
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
+  - gem install bundler
+  - bundle install
 
 stages:      
   - lint
@@ -14,7 +16,7 @@ stages:
 linter-android:   
   stage: lint
   script:
-    - ./gradlew detekt --stacktrace
+    - ./gradlew detekt
   tags:
     - linux
 
