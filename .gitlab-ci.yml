@@ -8,6 +8,8 @@ variables:
 
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
+  - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  - brew install ruby
   - gem install bundler
   - bundle install
 
@@ -40,7 +42,7 @@ build-android:
   stage: build
   script:
     - ./gradlew androidApp:assDe
-    
+
 
 deploy-dev:    
   stage: deploy-dev
