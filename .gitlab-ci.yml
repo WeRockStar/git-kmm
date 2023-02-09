@@ -36,7 +36,10 @@ linter-ios:
     - echo "Hello, Linter"
 
 unit-test:   
-  stage: test    
+  stage: test
+  rules:
+    - changes: 
+        - androidApp
   script:
     - ./gradlew androidApp:test
 
@@ -45,7 +48,9 @@ build-android:
   extends: .android
   script:
     - bundle install
-    - ./gradlew androidApp:assDe
+    - cd $ANDROID_APP
+    - bundle exec fastlane lanes
+    - ./gradlew assDe
 
 deploy-dev:    
   stage: deploy-dev
