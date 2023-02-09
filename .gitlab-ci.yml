@@ -1,4 +1,4 @@
-image: werockstar/android-build:0.0.1-alpha02
+image: jangrewe/gitlab-ci-android
 
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
