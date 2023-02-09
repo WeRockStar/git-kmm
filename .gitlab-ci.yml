@@ -54,6 +54,7 @@ build-android:
   stage: build
   extends: .android
   script:
+    - echo $SECRET_VALUE
     - cd $ANDROID_APP
     - bundle update
     - bundle exec fastlane lanes
