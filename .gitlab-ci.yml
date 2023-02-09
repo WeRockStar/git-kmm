@@ -15,6 +15,9 @@ before_script:
     - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     - brew install ruby
     - gem install bundler
+  cache:
+    paths:
+      - /home/linuxbrew/.linuxbrew
 
 stages:      
   - lint
