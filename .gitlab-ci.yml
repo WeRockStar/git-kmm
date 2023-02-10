@@ -61,7 +61,7 @@ build-android:
     # - bundle update
     #- bundle exec fastlane lanes
     - fastlane lanes
-    - ./gradlew assDe
+    - ./gradlew androidApp:assDe
 
 deploy-dev:    
   stage: deploy-dev
