@@ -57,8 +57,10 @@ build-android:
     - gem install bundler
     - echo $SECRET_VALUE
     - cd $ANDROID_APP
-    - bundle update
-    - bundle exec fastlane lanes
+    - brew install fastlane
+    # - bundle update
+    #- bundle exec fastlane lanes
+    - fastlane lanes
     - ./gradlew assDe
 
 deploy-dev:    
