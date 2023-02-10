@@ -15,7 +15,6 @@ before_script:
     - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     - brew install ruby
-    - gem install bundler
   cache:
     paths:
       - /home/linuxbrew/.linuxbrew
@@ -55,6 +54,7 @@ build-android:
   stage: build
   extends: .android
   script:
+    - gem install bundler
     - echo $SECRET_VALUE
     - cd $ANDROID_APP
     - bundle exec fastlane lanes
