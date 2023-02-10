@@ -56,7 +56,6 @@ build-android:
   script:
     - gem install bundler
     - echo $SECRET_VALUE
-    - cd $ANDROID_APP
     - brew install fastlane
     # - bundle update
     #- bundle exec fastlane lanes
