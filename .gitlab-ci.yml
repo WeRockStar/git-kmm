@@ -15,6 +15,11 @@ before_script:
     - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     - brew install ruby
+    - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
+    - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
+  after_script:
+    - rm $ANDROID_APP/google-services.json
+    - rm service-account-beta-deploy.json
 
 stages:      
   - lint
@@ -54,11 +59,9 @@ build-android:
   script:
     - gem install bundler
     - brew install fastlane
-    - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
     # - bundle update
     #- bundle exec fastlane lanes
     - fastlane build
-    - rm $ANDROID_APP/google-services.json
   artifacts:
     paths:
       - androidApp/build/outputs/apk/debug/androidApp-debug.apk
@@ -78,7 +81,6 @@ deploy-dev:
       artifacts: true
   script:
     - brew install fastlane
-    - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
     - fastlane beta
 
 deploy-uat:    
