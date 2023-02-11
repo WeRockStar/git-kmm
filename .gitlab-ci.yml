@@ -1,4 +1,4 @@
-image: werockstar/android-build:0.0.1-alpha02
+image: jangrewe/gitlab-ci-android
 
 variables:
   LC_ALL: en_US.UTF-8
@@ -11,6 +11,10 @@ before_script:
 
 ".android":
   before_script:
+    - apt update
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    - brew install ruby
     - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
     - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
     - echo $CI_COMMIT_MESSAGE > release-notes.txt
@@ -49,6 +53,7 @@ build-android:
   stage: build
   extends: ".android"
   script:
+    - brew install fastlane
     - fastlane build
   artifacts:
     paths:
@@ -76,6 +81,7 @@ deploy-dev:
   dependencies:
     - build-android
   script:
+    - brew install fastlane
     - fastlane beta
 deploy-uat:
   stage: deploy-uat
