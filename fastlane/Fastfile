@@ -8,8 +8,13 @@ platform :android do
 
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
+    gradle(task: "clean androidApp:assembleDe")
+    firebase_app_distribution(
+        app: "1:472674922784:android:db0687dc58fab36bb2a745",
+        testers: "dev-team",
+        release_notes: "Lots of amazing new features to test out!",
+        service_credentials_file: "service-account-beta-deploy.json"
+    )
   end
 
   desc "Deploy a new version to the Google Play"
