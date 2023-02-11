@@ -12,3 +12,4 @@ local.properties
 iosApp/iosApp.xcodeproj
 androidApp/google-services.json
 service-account-beta-deploy.json
+release-notes.txt

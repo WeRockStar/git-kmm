@@ -12,7 +12,7 @@ platform :android do
     firebase_app_distribution(
         app: "1:472674922784:android:db0687dc58fab36bb2a745",
         testers: "dev-team",
-        release_notes: "Lots of amazing new features to test out!",
+        release_notes_file: "release-notes.txt",
         service_credentials_file: "service-account-beta-deploy.json"
     )
   end

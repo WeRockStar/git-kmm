@@ -17,6 +17,7 @@ before_script:
     - brew install ruby
     - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
     - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
+    - echo $CI_COMMIT_MESSAGE > release-notes.txt
   after_script:
     - rm $ANDROID_APP/google-services.json
     - rm service-account-beta-deploy.json
