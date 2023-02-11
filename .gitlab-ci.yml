@@ -69,7 +69,6 @@ build-android:
 
 security-android:
   stage: security-scan
-  extends: .android
   script:
     - echo "Scanning"
 

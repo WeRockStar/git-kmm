@@ -55,7 +55,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "com.karumi.shot.ShotTestRunner"
-        testApplicationId = "com.werockstar.gitkmm.android.test"
+        testApplicationId = "${AndroidApp.applicationId}.test"
     }
 
     buildTypes {
