@@ -9,6 +9,11 @@ variables:
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
 
+cache:
+  paths:
+     - .gradle/wrapper
+     - .gradle/caches
+
 ".android":
   before_script:
     - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
