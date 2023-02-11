@@ -1,15 +1,19 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 image: jangrewe/gitlab-ci-android
-
 variables:
-  LC_ALL: "en_US.UTF-8"
-  LANG: "en_US.UTF-8"
-  ANDROID_APP: "androidApp"
-  IOS_APP: "iosApp"
-
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  ANDROID_APP: androidApp
+  IOS_APP: iosApp
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
-
-.android:
+".android":
   before_script:
     - apt update
     - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -22,85 +26,83 @@ before_script:
     - rm $ANDROID_APP/google-services.json
     - rm service-account-beta-deploy.json
 
-stages:      
+stages:
   - lint
   - test
-  - security-scan
+  - security
   - build
   - deploy-dev
   - deploy-uat
   - deploy-prod
 
-linter-android:   
+linter-android:
   stage: lint
   script:
-    - ./gradlew detekt
+    - "./gradlew detekt"
   tags:
     - linux
-
-linter-ios:   
+linter-ios:
   stage: lint
   script:
     - echo "Hello, Linter"
-
-unit-test:   
+unit-test:
   stage: test
   rules:
-    - changes: 
+    - changes:
         - androidApp
   script:
-    - ./gradlew androidApp:test
+    - "./gradlew androidApp:test"
 
 build-android:
   stage: build
-  extends: .android
+  extends: ".android"
   script:
     - gem install bundler
     - brew install fastlane
-    # - bundle update
-    #- bundle exec fastlane lanes
     - fastlane build
   artifacts:
     paths:
       - androidApp/build/outputs/apk/debug/androidApp-debug.apk
 
 security-android:
-  stage: security-scan
+  stage: security
   script:
     - echo "Scanning"
-
 security-ios:
-  stage: security-scan
+  stage: security
   script:
     - echo "Scanning"
 
-deploy-dev:    
+sast:
+  stage: security
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+deploy-dev:
   stage: deploy-dev
   environment: dev
-  extends: .android
+  extends: ".android"
   needs:
     - job: build-android
       artifacts: true
   script:
     - brew install fastlane
     - fastlane beta
-
-deploy-uat:    
+deploy-uat:
   stage: deploy-uat
   environment: uat
   script:
     - echo "Deploying application..."
   when: manual
 
-build-uat:    
+build-uat:
   stage: deploy-uat
   environment: uat
   needs:
     - job: deploy-uat
   script:
     - echo "Deploying application..."
-
-release-uat:    
+release-uat:
   stage: deploy-uat
   environment: uat
   needs:
@@ -110,8 +112,7 @@ release-uat:
       artifacts: false
   script:
     - echo "Deploying application..."
-
-deploy-prod:    
+deploy-prod:
   stage: deploy-prod
   environment: prod
   needs:
