@@ -63,6 +63,7 @@ build-android:
   artifacts:
     paths:
       - androidApp/build/outputs/apk/debug/androidApp-debug.apk
+    expire_in: 1 hour
 
 security-android:
   stage: security
@@ -82,9 +83,6 @@ deploy-dev:
   stage: deploy-dev
   environment: dev
   extends: ".android"
-  needs:
-    - job: build-android
-      artifacts: true
   script:
     - brew install fastlane
     - fastlane beta
