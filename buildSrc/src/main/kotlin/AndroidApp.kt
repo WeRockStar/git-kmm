@@ -2,6 +2,7 @@ object AndroidApp {
     const val minSdk = 27
     const val targetSdk = 33
     const val compileSdk = 33
+    const val buildTools = "33.0.2"
     const val applicationId = "com.werockstar.gitkmm.android"
     const val androidApplicationModule = "com.android.application"
     const val detekt = "io.gitlab.arturbosch.detekt"
