@@ -72,6 +72,11 @@ security-android:
   script:
     - echo "Scanning"
 
+security-ios:
+  stage: security-scan
+  script:
+    - echo "Scanning"
+
 deploy-dev:    
   stage: deploy-dev
   environment: dev
