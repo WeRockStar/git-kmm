@@ -79,6 +79,8 @@ deploy-dev:
   stage: deploy-dev
   environment: dev
   extends: ".android"
+  dependencies:
+    - build-android
   script:
     - brew install fastlane
     - fastlane beta
