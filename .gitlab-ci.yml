@@ -20,6 +20,7 @@ stages:
   - lint
   - test
   - build
+  - security-scan
   - deploy-dev
   - deploy-uat
   - deploy-prod
@@ -57,6 +58,12 @@ build-android:
     #- bundle exec fastlane lanes
     - fastlane lanes
     - ./gradlew androidApp:assDe
+
+security-android:
+  stage: security-scan
+  extends: .android
+  script:
+    - echo "Scanning"
 
 deploy-dev:    
   stage: deploy-dev
