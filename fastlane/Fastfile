@@ -31,7 +31,7 @@ platform :android do
   desc "Build Android APK"
   lane :build do
     increment_version
-    gradle(task: "clean androidApp:assembleDe")
+    gradle(task: "clean androidApp:assembleDe --parallel")
   end
 
   desc "Deploy a new version to the Google Play"
