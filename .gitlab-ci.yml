@@ -19,8 +19,8 @@ before_script:
 stages:      
   - lint
   - test
-  - build
   - security-scan
+  - build
   - deploy-dev
   - deploy-uat
   - deploy-prod
@@ -54,10 +54,12 @@ build-android:
   script:
     - gem install bundler
     - brew install fastlane
+    - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
     # - bundle update
     #- bundle exec fastlane lanes
     - fastlane lanes
     - ./gradlew androidApp:assDe
+    - rm $ANDROID_APP/google-services.json
 
 security-android:
   stage: security-scan

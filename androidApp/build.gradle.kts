@@ -5,6 +5,7 @@ plugins {
     id(Hilt.hiltPlugin)
     id(AndroidApp.detekt).version(AndroidApp.detektVersion)
     id(Testing.snapshotTest)
+    id("com.google.gms.google-services")
 }
 
 detekt {
@@ -30,6 +31,8 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.coil)
     implementation(Compose.accompanist)
+    implementation(platform(AndroidApp.firebaseBom))
+    implementation(AndroidApp.firebaseAnalytics)
     debugImplementation(Compose.composeUITestManifest)
 
     implementation(Hilt.hiltAndroid)
