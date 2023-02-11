@@ -5,6 +5,7 @@
 
     <application
         android:name=".App"
+        android:label="KMM"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
