@@ -17,6 +17,24 @@ platform :android do
     )
   end
 
+  desc "Increment Version Code"
+    lane :increment_version do
+      latest_release = firebase_app_distribution_get_latest_release(
+        app: "1:472674922784:android:db0687dc58fab36bb2a745",
+        service_credentials_file: "service-account-beta-deploy.json"
+      )
+      increment_version_code(
+        version_code: latest_release[:buildVersion].to_i + 1,
+        gradle_file_path: "androidApp/build.gradle.kts"
+      )
+  end
+
+  desc "Build Android APK"
+  lane :build do
+    increment_version
+    gradle(task: "clean androidApp:assembleDe")
+  end
+
   desc "Deploy a new version to the Google Play"
   lane :deploy do
     gradle(task: "clean assembleRelease")
