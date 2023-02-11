@@ -1,121 +1,115 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 image: jangrewe/gitlab-ci-android
-
 variables:
-  LC_ALL: "en_US.UTF-8"
-  LANG: "en_US.UTF-8"
-  ANDROID_APP: "androidApp"
-  IOS_APP: "iosApp"
-
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  ANDROID_APP: androidApp
+  IOS_APP: iosApp
 before_script:
-  - export GRADLE_USER_HOME=$(pwd)/.gradle
-
-.android:
+- export GRADLE_USER_HOME=$(pwd)/.gradle
+".android":
   before_script:
-    - apt update
-    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    - brew install ruby
-    - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
-    - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
-    - echo $CI_COMMIT_MESSAGE > release-notes.txt
+  - apt update
+  - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  - brew install ruby
+  - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
+  - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
+  - echo $CI_COMMIT_MESSAGE > release-notes.txt
   after_script:
-    - rm $ANDROID_APP/google-services.json
-    - rm service-account-beta-deploy.json
-
-stages:      
-  - lint
-  - test
-  - security-scan
-  - build
-  - deploy-dev
-  - deploy-uat
-  - deploy-prod
-
-linter-android:   
+  - rm $ANDROID_APP/google-services.json
+  - rm service-account-beta-deploy.json
+stages:
+- lint
+- test
+- security-scan
+- build
+- deploy-dev
+- deploy-uat
+- deploy-prod
+linter-android:
   stage: lint
   script:
-    - ./gradlew detekt
+  - "./gradlew detekt"
   tags:
-    - linux
-
-linter-ios:   
+  - linux
+linter-ios:
   stage: lint
   script:
-    - echo "Hello, Linter"
-
-unit-test:   
+  - echo "Hello, Linter"
+unit-test:
   stage: test
   rules:
-    - changes: 
-        - androidApp
+  - changes:
+    - androidApp
   script:
-    - ./gradlew androidApp:test
-
+  - "./gradlew androidApp:test"
 build-android:
   stage: build
-  extends: .android
+  extends: ".android"
   script:
-    - gem install bundler
-    - brew install fastlane
-    # - bundle update
-    #- bundle exec fastlane lanes
-    - fastlane build
+  - gem install bundler
+  - brew install fastlane
+  - fastlane build
   artifacts:
     paths:
-      - androidApp/build/outputs/apk/debug/androidApp-debug.apk
-
+    - androidApp/build/outputs/apk/debug/androidApp-debug.apk
 security-android:
   stage: security-scan
   script:
-    - echo "Scanning"
-
+  - echo "Scanning"
 security-ios:
   stage: security-scan
   script:
-    - echo "Scanning"
-
-deploy-dev:    
+  - echo "Scanning"
+deploy-dev:
   stage: deploy-dev
   environment: dev
-  extends: .android
+  extends: ".android"
   needs:
-    - job: build-android
-      artifacts: true
+  - job: build-android
+    artifacts: true
   script:
-    - brew install fastlane
-    - fastlane beta
-
-deploy-uat:    
+  - brew install fastlane
+  - fastlane beta
+deploy-uat:
   stage: deploy-uat
   environment: uat
   script:
-    - echo "Deploying application..."
+  - echo "Deploying application..."
   when: manual
-
-build-uat:    
+build-uat:
   stage: deploy-uat
   environment: uat
   needs:
-    - job: deploy-uat
+  - job: deploy-uat
   script:
-    - echo "Deploying application..."
-
-release-uat:    
+  - echo "Deploying application..."
+release-uat:
   stage: deploy-uat
   environment: uat
   needs:
-    - job: build-uat
-      artifacts: false
-    - job: deploy-uat
-      artifacts: false
+  - job: build-uat
+    artifacts: false
+  - job: deploy-uat
+    artifacts: false
   script:
-    - echo "Deploying application..."
-
-deploy-prod:    
+  - echo "Deploying application..."
+deploy-prod:
   stage: deploy-prod
   environment: prod
   needs:
-    - job: release-uat
+  - job: release-uat
   script:
-    - echo "Deploying application..."
+  - echo "Deploying application..."
   when: manual
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
