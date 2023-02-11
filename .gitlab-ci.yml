@@ -58,7 +58,7 @@ build-android:
   artifacts:
     paths:
       - androidApp/build/outputs/apk/debug/androidApp-debug.apk
-    expire_in: 1 hour
+    expire_in: 2 hour
 
 security-android:
   stage: security
@@ -71,7 +71,6 @@ security-ios:
 
 deploy-dev:
   stage: deploy-dev
-  environment: dev
   extends: ".android"
   dependencies:
     - build-android

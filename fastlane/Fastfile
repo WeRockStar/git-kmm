@@ -12,7 +12,8 @@ platform :android do
         app: "1:472674922784:android:db0687dc58fab36bb2a745",
         groups: "dev-team",
         release_notes_file: "release-notes.txt",
-        service_credentials_file: "service-account-beta-deploy.json"
+        service_credentials_file: "service-account-beta-deploy.json",
+        android_artifact_path: "androidApp/build/outputs/apk/debug/androidApp-debug.apk"
     )
   end
 
