@@ -33,9 +33,6 @@ stages:
 
 linter-android:   
   stage: lint
-  rules:
-    - changes: 
-        - androidApp
   script:
     - ./gradlew detekt
   tags:
