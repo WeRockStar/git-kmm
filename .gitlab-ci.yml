@@ -12,104 +12,111 @@ variables:
   ANDROID_APP: androidApp
   IOS_APP: iosApp
 before_script:
-- export GRADLE_USER_HOME=$(pwd)/.gradle
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
 ".android":
   before_script:
-  - apt update
-  - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  - brew install ruby
-  - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
-  - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
-  - echo $CI_COMMIT_MESSAGE > release-notes.txt
+    - apt update
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    - brew install ruby
+    - cp $GOOGLE_SERVICE $ANDROID_APP/google-services.json
+    - cp $SERVICE_ACCOUNT service-account-beta-deploy.json
+    - echo $CI_COMMIT_MESSAGE > release-notes.txt
   after_script:
-  - rm $ANDROID_APP/google-services.json
-  - rm service-account-beta-deploy.json
+    - rm $ANDROID_APP/google-services.json
+    - rm service-account-beta-deploy.json
+
 stages:
-- lint
-- test
-- security-scan
-- build
-- deploy-dev
-- deploy-uat
-- deploy-prod
+  - lint
+  - test
+  - security
+  - build
+  - deploy-dev
+  - deploy-uat
+  - deploy-prod
+
 linter-android:
   stage: lint
   script:
-  - "./gradlew detekt"
+    - "./gradlew detekt"
   tags:
-  - linux
+    - linux
 linter-ios:
   stage: lint
   script:
-  - echo "Hello, Linter"
+    - echo "Hello, Linter"
 unit-test:
   stage: test
   rules:
-  - changes:
-    - androidApp
+    - changes:
+        - androidApp
   script:
-  - "./gradlew androidApp:test"
+    - "./gradlew androidApp:test"
+
 build-android:
   stage: build
   extends: ".android"
   script:
-  - gem install bundler
-  - brew install fastlane
-  - fastlane build
+    - gem install bundler
+    - brew install fastlane
+    - fastlane build
   artifacts:
     paths:
-    - androidApp/build/outputs/apk/debug/androidApp-debug.apk
+      - androidApp/build/outputs/apk/debug/androidApp-debug.apk
+
 security-android:
-  stage: security-scan
+  stage: security
   script:
-  - echo "Scanning"
+    - echo "Scanning"
 security-ios:
-  stage: security-scan
+  stage: security
   script:
-  - echo "Scanning"
+    - echo "Scanning"
+
+sast:
+  stage: security
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
 deploy-dev:
   stage: deploy-dev
   environment: dev
   extends: ".android"
   needs:
-  - job: build-android
-    artifacts: true
+    - job: build-android
+      artifacts: true
   script:
-  - brew install fastlane
-  - fastlane beta
+    - brew install fastlane
+    - fastlane beta
 deploy-uat:
   stage: deploy-uat
   environment: uat
   script:
-  - echo "Deploying application..."
+    - echo "Deploying application..."
   when: manual
+
 build-uat:
   stage: deploy-uat
   environment: uat
   needs:
-  - job: deploy-uat
+    - job: deploy-uat
   script:
-  - echo "Deploying application..."
+    - echo "Deploying application..."
 release-uat:
   stage: deploy-uat
   environment: uat
   needs:
-  - job: build-uat
-    artifacts: false
-  - job: deploy-uat
-    artifacts: false
+    - job: build-uat
+      artifacts: false
+    - job: deploy-uat
+      artifacts: false
   script:
-  - echo "Deploying application..."
+    - echo "Deploying application..."
 deploy-prod:
   stage: deploy-prod
   environment: prod
   needs:
-  - job: release-uat
+    - job: release-uat
   script:
-  - echo "Deploying application..."
+    - echo "Deploying application..."
   when: manual
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
