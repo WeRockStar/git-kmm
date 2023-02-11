@@ -64,11 +64,6 @@ security-ios:
   script:
     - echo "Scanning"
 
-sast:
-  stage: security
-include:
-  - template: Security/SAST.gitlab-ci.yml
-
 deploy-dev:
   stage: deploy-dev
   environment: dev
