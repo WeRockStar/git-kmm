@@ -34,6 +34,7 @@ stages:
 
 linter-android:
   stage: lint
+  extends: ".android"
   script:
     - "./gradlew detekt"
   tags:
@@ -44,6 +45,7 @@ linter-ios:
     - echo "Hello, Linter"
 unit-test:
   stage: test
+  extends: ".android"
   rules:
     - changes:
         - androidApp
