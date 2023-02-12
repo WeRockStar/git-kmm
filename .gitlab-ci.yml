@@ -1,4 +1,4 @@
-image: werockstar/android-build:0.0.1-alpha03
+image: werockstar/android-build:latest
 
 variables:
   LC_ALL: en_US.UTF-8
