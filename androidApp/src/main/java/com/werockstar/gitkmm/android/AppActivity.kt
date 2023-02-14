@@ -42,7 +42,7 @@ fun GitUserApp(users: List<GithubUser>) {
 }
 
 @Composable
-@Preview(widthDp = 300, heightDp = 480)
+@Preview
 fun GitUserAppPreview() {
     val users = listOf(GithubUser("WeRockStar", "", "", 1))
     GitUserApp(users)
