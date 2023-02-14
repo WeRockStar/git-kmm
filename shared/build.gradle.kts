@@ -30,6 +30,7 @@ kotlin {
                 implementation(Ktor.core)
                 implementation(Ktor.serialization)
                 implementation(Ktor.logging)
+                implementation(Ktor.contentNegotiation)
                 implementation(Logging.napier)
             }
         }
@@ -44,7 +45,7 @@ kotlin {
                 implementation(Ktor.android)
             }
         }
-        val androidTest by getting {
+        val androidUnitTest by getting {
             dependencies {
                 implementation(kotlin(Testing.kotlinJunit))
                 implementation(Testing.junit)

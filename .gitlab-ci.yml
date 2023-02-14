@@ -64,6 +64,7 @@ build-android:
 security-android:
   stage: security
   script:
+    - cd $ANDROID_APP
     - mobsfscan .
 security-ios:
   stage: security

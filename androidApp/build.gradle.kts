@@ -82,7 +82,7 @@ android {
         jvmTarget = "1.8"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Compose.composeVersion
+        kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
     }
     namespace = AndroidApp.applicationId
 }

@@ -1,12 +1,13 @@
 object Compose {
     const val composeVersion = "1.3.1"
+    const val composeCompilerVersion = "1.4.2"
     const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
     const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${composeVersion}"
     const val ui = "androidx.compose.ui:ui:${composeVersion}"
     const val material = "androidx.compose.material:material:${composeVersion}"
     const val uiTooling = "androidx.compose.ui:ui-tooling:${composeVersion}"
     const val foundation = "androidx.compose.foundation:foundation:${composeVersion}"
-    const val compiler = "androidx.compose.compiler:compiler:${composeVersion}"
+    const val compiler = "androidx.compose.compiler:compiler:${composeCompilerVersion}"
 
     private const val composeActivitiesVersion = "1.6.1"
     const val activity = "androidx.activity:activity-compose:${composeActivitiesVersion}"
