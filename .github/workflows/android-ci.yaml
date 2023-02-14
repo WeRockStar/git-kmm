@@ -31,7 +31,7 @@ jobs:
           java-version: '11'
       - uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 7.4
+          gradle-version: 7.5
           arguments: ${{ matrix.module }}:test
   security-scan:
     name: Mobile Security Scan
@@ -92,5 +92,5 @@ jobs:
           java-version: '11'
       - uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 7.4
+          gradle-version: 7.5
           arguments: assDe
