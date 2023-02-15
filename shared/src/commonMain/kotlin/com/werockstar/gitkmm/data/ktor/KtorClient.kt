@@ -1,6 +1,8 @@
 package com.werockstar.gitkmm.data.ktor
 
+import com.werockstar.gitkmm.data.remote.GitURL
 import io.ktor.client.*
+import io.ktor.client.plugins.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.*
@@ -16,8 +18,11 @@ object KtorClient {
                     isLenient = true
                 })
             }
+            defaultRequest {
+                url(GitURL.BASE_URL)
+            }
             install(Logging) {
-                level = LogLevel.HEADERS
+                level = LogLevel.INFO
                 logger = KtorLogging.create()
             }
         }

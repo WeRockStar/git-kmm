@@ -11,7 +11,7 @@ class GitLoader {
     private val httpClient by lazy { KtorClient.create() }
 
     suspend fun fetchUsers(): List<GithubUser> {
-        return httpClient.get(GitURL.USERS)
+        return httpClient.get("/users")
             .body<List<GitUserResponse>>()
             .map { GithubUser(it.username, it.avatarUrl, it.name, it.id) }
     }
