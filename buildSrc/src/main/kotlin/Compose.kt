@@ -15,7 +15,7 @@ object Compose {
     private const val composeNavigationVersion = "2.5.3"
     const val navigation = "androidx.navigation:navigation-compose:${composeNavigationVersion}"
 
-    const val coil = "io.coil-kt:coil-compose:2.2.2"
+    const val coil = "io.coil-kt:coil-compose:2.3.0"
     const val accompanist = "com.google.accompanist:accompanist-placeholder:0.30.0"
 
     const val composeJUnitUITest = "androidx.compose.ui:ui-test-junit4:${composeVersion}"
