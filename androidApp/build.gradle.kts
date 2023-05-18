@@ -75,8 +75,8 @@ android {
         compose = true
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -85,9 +85,10 @@ android {
         kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
     }
     namespace = AndroidApp.applicationId
+    testNamespace = "com.werockstar.gitkmm.android.test"
 }
 
 shot {
-    tolerance =  0.15
+    tolerance = 0.15
     showOnlyFailingTestsInReports = true
 }
