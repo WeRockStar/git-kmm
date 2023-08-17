@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "472674922784",
+    "project_id": "gitkmm",
+    "storage_bucket": "gitkmm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472674922784:android:db0687dc58fab36bb2a745",
+        "android_client_info": {
+          "package_name": "com.werockstar.gitkmm.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472674922784-rljdeqodavrd2kjhon7gj9sps0ut095v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq_YyChN-aEsLvlt-oKAtnYV3tbOW_Vt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472674922784-rljdeqodavrd2kjhon7gj9sps0ut095v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
